@@ -14,6 +14,7 @@
 | [architecture.md](architecture.md) | 系统结构、模块接口、数据流、事务和部署方式 | 理解技术方案与模块关系 |
 | [tasks.md](tasks.md) | M1～M5 实现计划、四人分工、依赖、人日估算和协作规范 | 领取任务、并行开发、接口联调和 PR 评审 |
 | [checklist.md](checklist.md) | 核心与选做功能的可复现验证步骤 | 模块自测、集成验收和最终演示 |
+https://hypersmart.feishu.cn/wiki/IK4YwAvp6i3X9hk5Ih1csuTjn9g
 
 建议阅读顺序：功能规格 → 系统架构 → 实现计划 → 验证清单。文档通过 `REQ`、`TASK`、`CHECK` 编号关联。
 
