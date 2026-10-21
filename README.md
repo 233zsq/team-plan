@@ -4,7 +4,13 @@
 
 开发中可以使用 AI 辅助编写代码、测试和文档，组员按模块分工，负责理解、修改和验证结果。
 
-**当前阶段：需求与开发规划已完成，进入 M1 项目骨架。** 仓库目前仅包含文档，尚无业务代码、数据库脚本或可运行应用；验证清单尚未执行。P0 契约已按 [spec.md](spec.md) v0.4 与 [architecture.md](architecture.md) v0.5 第 14 节冻结，并于 2026-10-21 经四人逐条确认（TASK-001 完成）；技术栈和部分业务细节仍需在 M1 结合课程要求确认。
+**当前阶段：需求与开发规划已完成，进入 M1 项目骨架。** 仓库目前包含文档与原型素材（风格文件、截图），尚无业务代码、数据库脚本或可运行应用；验证清单尚未执行。P0 契约已按 [spec.md](spec.md) v0.4 与 [architecture.md](architecture.md) v0.5 第 14 节冻结，并于 2026-10-21 经四人逐条确认（TASK-001 完成）；技术栈和部分业务细节仍需在 M1 结合课程要求确认。
+
+## 预期效果
+
+![看板三列视图（预期效果）](prototype/screenshots/board.png)
+
+原型的看板主界面，作为实现后的视觉与交互参考；完整截图见 [prototype/screenshots](prototype/screenshots/)。
 
 ## 文档导航
 
@@ -14,6 +20,7 @@
 | [architecture.md](architecture.md) | 系统结构、模块接口、数据流、事务、部署方式，以及 M1 冻结决议与评审处理记录 | 理解技术方案、模块关系与已冻结边界 |
 | [tasks.md](tasks.md) | M1～M5 实现计划、四人分工、依赖、任务状态和协作规范 | 领取任务、并行开发、接口联调和 PR 评审 |
 | [checklist.md](checklist.md) | 核心与选做功能的可复现验证步骤 | 模块自测、集成验收和最终演示 |
+| [global.css](prototype/styles/global.css) | 原型风格文件：颜色、字体、间距与组件样式基线 | 实现界面前对齐视觉规范 |
 https://hypersmart.feishu.cn/wiki/IK4YwAvp6i3X9hk5Ih1csuTjn9g
 
 建议阅读顺序：功能规格 → 系统架构 → 实现计划 → 验证清单。文档通过 `REQ`、`TASK`、`CHECK` 编号关联。
