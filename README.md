@@ -4,7 +4,7 @@
 
 开发中可以使用 AI 辅助编写代码、测试和文档，组员按模块分工，负责理解、修改和验证结果。
 
-**当前阶段：需求与开发规划已完成，进入 M1 项目骨架。** 仓库目前包含文档与原型素材（风格文件、截图），尚无业务代码、数据库脚本或可运行应用；验证清单尚未执行。P0 契约已按 [spec.md](spec.md) v0.4 与 [architecture.md](architecture.md) v0.5 第 14 节冻结，并于 2026-10-21 经四人逐条确认（TASK-001 完成）；技术栈和部分业务细节仍需在 M1 结合课程要求确认。
+**当前阶段：M1 项目骨架。** 仓库包含文档、原型素材、TASK-002 后端骨架与 TASK-005 数据库初始化/迁移（P0 表、固定成员种子、校验和与隔离测试），业务 API 与前端尚未实现；CHECK-001～043 尚未按清单执行。P0 契约已按 [spec.md](spec.md) v0.4 与 [architecture.md](architecture.md) v0.5 第 14 节冻结，并于 2026-10-21 经四人逐条确认（TASK-001 完成）；技术栈和部分业务细节仍需在 M1 结合课程要求确认。
 
 ## 预期效果
 
@@ -48,7 +48,23 @@ https://hypersmart.feishu.cn/wiki/IK4YwAvp6i3X9hk5Ih1csuTjn9g
 
 采用浏览器 → 同源 JSON API → 后端业务服务 → SQLite 的单实例结构，不引入额外云服务、缓存或消息队列。主要限制是并发写入能力、全量编辑可能覆盖他人修改，以及没有实时同步；详细边界见 [功能规格](spec.md)。
 
-目前没有应用安装、构建和启动命令。实施时应在本文件补齐实际 Node.js 版本、锁定依赖安装、配置、数据库初始化、开发启动、测试及构建演示步骤，不将未实现的命令写成可用操作。
+当前已可运行 TASK-002 的后端骨架与 TASK-005 的数据库初始化/迁移；业务 API 与前端尚未实现，运行步骤见下节。
+
+## 本地运行（后端）
+
+TASK-002 验证环境：Windows + Node.js 18.17.1 + npm 9.6.7；文档基线为 Node 22 LTS，课程机复核后再更新 `engines`。依赖通过 `package-lock.json` 锁定。
+
+```powershell
+npm install
+Copy-Item .env.example .env
+npm run db:init            # 建库、应用迁移 0001、写入四名固定成员；可重复执行
+npm run dev:backend
+```
+
+- 健康检查：`curl http://127.0.0.1:3000/api/v1/health`
+- 常用命令：`npm run typecheck`、`npm run test:backend`、`npm run build:backend`、`npm start -w backend`
+- `npm run db:init` 可重复执行：只补待应用迁移和固定成员，不会删除已有看板或任务；数据库未初始化时服务启动失败。
+- 启动失败以退出码 1 结束，不创建空库、不回退内存库；配置键见 `.env.example` 与 [architecture.md](architecture.md) 第 14 节。
 
 ## 四人分工
 
